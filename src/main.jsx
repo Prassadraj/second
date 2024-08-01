@@ -6,15 +6,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
 import ProductDataProvider from "./component/Context/ProductData.jsx";
 import CategoryProvider from "./component/Context/CategoryContext.jsx";
+import MobileBtn from "./component/Context/MobileContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ProductDataProvider>
     <CategoryProvider>
-      <Router>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
-      </Router>
+      <MobileBtn>
+        <Router>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+        </Router>
+      </MobileBtn>
     </CategoryProvider>
   </ProductDataProvider>
 );

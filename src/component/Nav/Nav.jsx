@@ -11,6 +11,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import { BtnContextProvider } from "../Context/MobileContext";
 
 function Nav() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function Nav() {
   });
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { setSelectedCategory } = useContext(CategoryContext);
+  const { setIsToggled } = useContext(BtnContextProvider);
 
   useEffect(() => {
     switch (location.pathname) {
@@ -103,7 +105,10 @@ function Nav() {
             <Link
               className=" text-xl font-semibold py-2 "
               to="/"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => {
+                setShowMobileMenu(!showMobileMenu);
+                setIsToggled((e) => !e);
+              }}
             >
               Home
             </Link>
@@ -111,7 +116,14 @@ function Nav() {
               className="text-xl font-semibold py-2 mt-2 flex items-center justify-between"
               onClick={() => toggleDropdown("about")}
             >
-              <p onClick={() => setShowMobileMenu(!showMobileMenu)}>About</p>
+              <p
+                onClick={() => {
+                  setShowMobileMenu(!showMobileMenu);
+                  setIsToggled((e) => !e);
+                }}
+              >
+                About
+              </p>
               {showDropdown.about ? <FaChevronDown /> : <FaChevronRight />}
             </div>
             {showDropdown.about && (
@@ -128,7 +140,10 @@ function Nav() {
           <Link
             className=" text-xl font-semibold py-2"
             to="/brand"
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+              setIsToggled((e) => !e);
+            }}
           >
             Our Brands
           </Link>
@@ -136,7 +151,9 @@ function Nav() {
             <div
               className="text-xl font-semibold  py-2 flex items-center justify-between"
               onClick={() => {
-                toggleDropdown("products");
+                {
+                  toggleDropdown("products");
+                }
               }}
             >
               Products
@@ -226,16 +243,44 @@ function Nav() {
               </div>
             )}
           </div>
-          <Link className="text-xl font-semibold py-2" to="/career">
+          <Link
+            className="text-xl font-semibold py-2"
+            to="/career"
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+              setIsToggled((e) => !e);
+            }}
+          >
             Career
           </Link>
-          <Link className="text-xl font-semibold py-2" to="/success">
+          <Link
+            className="text-xl font-semibold py-2"
+            to="/success"
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+              setIsToggled((e) => !e);
+            }}
+          >
             Our Success
           </Link>
-          <Link className="text-xl font-semibold py-2" to="/blog">
+          <Link
+            className="text-xl font-semibold py-2"
+            to="/blog"
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+              setIsToggled((e) => !e);
+            }}
+          >
             Blog
           </Link>
-          <Link className="text-xl font-semibold py-2" to="/contact">
+          <Link
+            className="text-xl font-semibold py-2"
+            to="/contact"
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+              setIsToggled((e) => !e);
+            }}
+          >
             Contact
           </Link>
         </div>

@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import "./menuBtn.css"; // Make sure to import your CSS
+import React, { useContext } from "react";
+import "./menuBtn.css";
+import { BtnContextProvider } from "../../Context/MobileContext";
 
 const MenuBtn = () => {
-  const [isToggled, setIsToggled] = useState(false);
-
-  const handleClick = () => {
-    setIsToggled(!isToggled);
-  };
+  const { isToggled, setIsToggled } = useContext(BtnContextProvider);
 
   return (
     <svg
@@ -16,7 +13,7 @@ const MenuBtn = () => {
       viewBox="0 0 45 43"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={handleClick}
+      onClick={() => setIsToggled((prev) => !prev)}
     >
       <path
         className={`path1 ${isToggled ? "cross" : ""}`}
