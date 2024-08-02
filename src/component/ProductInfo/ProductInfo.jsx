@@ -344,7 +344,12 @@ function ProductInfo() {
           </div>
           <div className="w-full flex justify-center mt-4 sm:hidden">
             <button className="text-sm md:text-xl py-2 px-4 bg-custom-green text-white rounded-lg">
-              View All Products
+              <Link
+                to="/product"
+                onClick={() => setSelectedCategory("Biochemistry")}
+              >
+                View All Products
+              </Link>
             </button>
           </div>
         </div>

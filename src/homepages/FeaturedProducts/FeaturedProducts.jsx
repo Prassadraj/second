@@ -49,13 +49,13 @@ const FeaturedProducts = () => {
 
   return (
     <div className="">
-      <div className="flex h-10 items-center md:pl-24 flex-col md:gap-4 heading p-2 text-center">
+      <div className="mb-4 flex h-10 items-center md:pl-24 flex-col md:gap-4 heading p-2 text-center">
         <span className="font-semibold text-xl md:text-4xl uppercase  font-poppins text-custom-green">
           Featured Products
         </span>
-        <p className="md:text-xl heading font-poppins text-gray-500">
+        <p className="md:text-xl heading font-poppins text-gray-500 ">
           We use only the best quality materials n the market in order to
-          provide the best productsto our patients.
+          provide the best products to our patients.
         </p>
       </div>
       <div className="hidden md:block">

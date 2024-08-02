@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import contbanner from "../../assets/image/contact-us-banner.png";
 import call from "../../assets/image/call.png";
 import mail from "../../assets/image/mail.png";
@@ -6,6 +6,7 @@ import loc from "../../assets/image/location.png";
 import callin from "../../assets/image/call-in.png";
 import mailin from "../../assets/image/mail-in.png";
 import locin from "../../assets/image/location-in.png";
+import Footer from "../../homepages/Footer/Footer";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,9 @@ function Contact() {
     // Handle form submission logic here
     console.log("Form Data Submitted:", formData);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container-fluid">
       <div>
@@ -461,6 +464,7 @@ function Contact() {
           className="w-full h-96 col-span-12"
         ></iframe>
       </div>
+      <Footer />
     </div>
   );
 }

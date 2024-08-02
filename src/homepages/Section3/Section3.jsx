@@ -54,9 +54,9 @@ function Section3() {
         //   background: "linear-gradient(180deg, #ffffff 0%, #7de4c2 150%)",
         // }}
       >
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start md:px-4 lg:p-1">
           <div className="mb-3" data-aos="zoom-in-left">
-            <p className="font-bold text-custom-green text-sm md:text-3xl">
+            <p className="font-bold text-custom-green text-sm md:text-3xl ">
               Who We Are?
             </p>
           </div>
@@ -103,12 +103,12 @@ function Section3() {
         </div>
         <div className="flex flex-col items-start">
           <div className="mb-3" data-aos="zoom-in-left">
-            <p className="font-bold text-custom-green text-sm md:text-3xl">
+            <p className="font-bold text-custom-green text-sm md:text-3xl md:px-4 lg:p-1">
               What We Do?
             </p>
           </div>
           <div
-            className="w-full md:max-w-xl text-sm md:text-xl "
+            className="w-full md:max-w-xl text-sm md:text-xl md:px-4 lg:p-1"
             data-aos="zoom-in-left"
           >
             <p className="leading-8 text-justify md:tracking-wider">

@@ -16,11 +16,7 @@ function Footer({ open }) {
   const col4Ref = useRef(null);
 
   return (
-    <div
-      className={`h-fit md:h-[75vh] bg-light-green md:block ${
-        open && "hidden"
-      }`}
-    >
+    <div className={`h-fit  bg-light-green md:block ${open && "hidden"}`}>
       <div
         className="flex justify-around gap-2
      "

@@ -4,6 +4,7 @@ import banner from "../../assets/image/banner-image.png";
 import blog1 from "../../assets/image/blog1.png";
 import blog2 from "../../assets/image/blog2.png";
 import blog3 from "../../assets/image/blog3.png";
+import Footer from "../../homepages/Footer/Footer";
 
 const blogs = [
   {
@@ -75,6 +76,7 @@ function Blog() {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

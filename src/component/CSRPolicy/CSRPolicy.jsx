@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Ensure this import is correct
 import pic1 from "../../assets/image/pic1.jpg";
 import pic2 from "../../assets/image/Pic2.jpg";
@@ -45,6 +45,9 @@ const CSRPolicy = () => {
     autoplaySpeed: 2500,
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className=" mt-4">
       <div className="grid grid-cols-12 p-10">

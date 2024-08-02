@@ -38,13 +38,7 @@ function ZoomEffect() {
       }}
     >
       <div className="flex justify-center items-center flex-col gap-1 md:mt-5 font-poppins">
-        <img
-          data-aos="flip-down"
-          style={{ objectFit: "cover" }}
-          width="220px"
-          src={itrack}
-          alt=""
-        />
+        <img style={{ objectFit: "cover" }} width="220px" src={itrack} alt="" />
         <p data-aos="zoom-in-up" className="md:text-xl text-center">
           CPC developed i-track, a proprietary system for remote instrument
           maintenance, in a groundbreaking initiative.
@@ -57,7 +51,7 @@ function ZoomEffect() {
       <div id="container" className="md:h-[100vh] flex flex-col gap-3 md:mt-5">
         <div className=" flex justify-evenly ">
           <img
-            className="w-[100px] object-cover h-[100px] md:w-[200px] md:h-[150px]"
+            className="w-[100px] object-cover md:h-[100px] lg:w-[200px] lg:h-[150px]"
             src={pictures[0].src}
             data-aos="zoom-in-up"
             alt=""
@@ -67,12 +61,12 @@ function ZoomEffect() {
             src={pictures[2].src}
             alt=""
             data-aos="zoom-in-up"
-            className="w-[100px] object-cover h-[100px] md:w-[200px] md:h-[150px]"
+            className="w-[100px] object-cover h-[100px] md:w-[150px] md:h-[100px] lg:w-[200px] lg:h-[150px]"
           />
         </div>
         <div className=" flex justify-evenly items-center ">
           <img
-            className="w-[50px] object-cover h-[50px] md:w-[200px] md:h-[200px]"
+            className="w-[50px] object-cover h-[50px] lg:w-[200px] lg:h-[200px] md:w-[100px] md:h-[100px]"
             src={pictures[4].src}
             data-aos="zoom-in-up"
             alt=""
@@ -81,7 +75,7 @@ function ZoomEffect() {
             // width="510"
             // height="287"
             data-aos="zoom-in-up"
-            className="w-[180px] h-[100px] md:w-[700px] md:h-[270px]"
+            className="w-[180px] h-[100px] md:w-[500px] md:h-[270px] lg:w-[700px] lg:h-[270px] "
             src="https://www.youtube.com/embed/mNYxQo9i7gc"
             title="i-track - Constant Remote Support"
             frameBorder="0"
@@ -90,7 +84,7 @@ function ZoomEffect() {
             allowFullScreen
           ></iframe>{" "}
           <img
-            className="w-[50px] object-cover h-[50px] md:w-[200px] md:h-[200px] "
+            className="w-[50px] object-cover h-[50px] lg:w-[200px] lg:h-[200px] md:w-[100px] md:h-[100px] "
             src={pictures[3].src}
             data-aos="zoom-in-up"
             alt=""
@@ -98,14 +92,14 @@ function ZoomEffect() {
         </div>
         <div className=" flex justify-evenly items-center ">
           <img
-            className="w-[100px] object-cover h-[100px] md:w-[200px] md:h-[150px]"
+            className="w-[100px] object-cover md:h-[100px] lg:w-[200px] lg:h-[150px]"
             src={pictures[1].src}
             data-aos="zoom-in-up"
             alt=""
           />
 
           <img
-            className="w-[100px] object-cover h-[100px] md:w-[200px] md:h-[150px] "
+            className="w-[100px] object-cover md:h-[100px] lg:w-[200px] lg:h-[150px] "
             src={pictures[2].src}
             data-aos="zoom-in-up"
             alt=""

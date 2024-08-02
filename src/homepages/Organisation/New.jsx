@@ -102,9 +102,9 @@ function New() {
             />
           </div>
         </div>
-        <div className="sticky flex flex-col top-24 gap-3 text-xs md:text-lg w-1/2">
-          <div className="md:px-10">
-            <p className="ctn1 md:px-5">
+        <div className="sticky flex flex-col top-24 lg:gap-3 md:gap-2 text-xs md:text-base lg:text-lg w-1/2">
+          <div className="md:px-5 lg:px-20 md:py-2">
+            <p className="ctn1 ">
               <img src={organisation1} alt="" className="w-16 logo1" />
               Jeev Diagnostics Pvt. Ltd. is a collaborative venture between
               Awareness Technology Inc. (USA) and CPC Diagnostics Pvt. Ltd.
@@ -112,16 +112,16 @@ function New() {
               reagents.
             </p>
           </div>
-          <div className="md:px-10">
-            <p className="ctn2 md:px-5">
+          <div className="md:px-5 lg:px-20">
+            <p className="ctn2">
               <img src={organisation2} alt="" className="w-16 logo2" />
               Sachika, an initiative by CPC Diagnostics Pvt. Ltd., focuses on
               life sciences education, empowering clinicians with contemporary
               bioscience skills.
             </p>
           </div>
-          <div className="md:px-10">
-            <p className="ctn3 md:px-5">
+          <div className="md:px-5 lg:px-20">
+            <p className="ctn3 ">
               <img src={organisation3} alt="" className="w-16 logo3" />
               CPC’s division for diagnostic instrument manufacturing aims at
               empowerment, reliability, and innovation in indigenous

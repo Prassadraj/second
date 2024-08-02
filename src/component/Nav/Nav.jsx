@@ -129,10 +129,26 @@ function Nav() {
             {showDropdown.about && (
               <div className="text-base font-lato ">
                 <li className="">
-                  <Link>About Us</Link>
+                  <Link
+                    onClick={() => {
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
+                    to="/about"
+                  >
+                    About Us
+                  </Link>
                 </li>
                 <li>
-                  <Link>CSR Policy</Link>
+                  <Link
+                    onClick={() => {
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
+                    to="/csr"
+                  >
+                    CSR Policy
+                  </Link>
                 </li>
               </div>
             )}
@@ -168,6 +184,7 @@ function Nav() {
                     onClick={() => {
                       setSelectedCategory("Biochemistry");
                       setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
                     }}
                   >
                     Biochemistry
@@ -177,7 +194,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("Clinical Microbiology")}
+                    onClick={() => {
+                      setSelectedCategory("Clinical Microbiology");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Clinical Microbiology
                   </Link>
@@ -187,7 +208,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("COVID-19")}
+                    onClick={() => {
+                      setSelectedCategory("COVID-19");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     COVID-19
                   </Link>
@@ -197,7 +222,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("Electrolyte Analyzer")}
+                    onClick={() => {
+                      setSelectedCategory("Electrolyte Analyzer");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Electrolyte Analyzer
                   </Link>
@@ -206,7 +235,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("Hematology")}
+                    onClick={() => {
+                      setSelectedCategory("Hematology");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Hematology
                   </Link>
@@ -215,7 +248,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("Immunology")}
+                    onClick={() => {
+                      setSelectedCategory("Immunology");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Immunology
                   </Link>
@@ -224,7 +261,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() => setSelectedCategory("Point of Care")}
+                    onClick={() => {
+                      setSelectedCategory("Point of Care");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Point of Care
                   </Link>
@@ -233,9 +274,11 @@ function Nav() {
                   <Link
                     className=""
                     to="/product"
-                    onClick={() =>
-                      setSelectedCategory("Pre-Analytical Automation")
-                    }
+                    onClick={() => {
+                      setSelectedCategory("Pre-Analytical Automation");
+                      setShowMobileMenu(!showMobileMenu);
+                      setIsToggled((e) => !e);
+                    }}
                   >
                     Pre-Analytical Automation
                   </Link>

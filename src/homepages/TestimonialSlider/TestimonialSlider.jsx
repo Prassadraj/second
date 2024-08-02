@@ -90,13 +90,7 @@ function TestimonialSlider() {
         <p className="text-lg md:text-4xl text-custom-green font-semibold headline font-poppins uppercase">
           Testimonials
         </p>
-        <p
-          className="md:text-xl w-full text-gray-900 tracking-wide"
-          style={{
-            fontFamily: "Poppins",
-            textAlign: "center",
-          }}
-        >
+        <p className="md:text-xl w-full text-gray-900 tracking-wide text-center">
           Our experience with CPC Diagnostics has been exceptional. Their
           products are reliable, and their support is outstanding.
         </p>
@@ -109,9 +103,9 @@ function TestimonialSlider() {
         {data.map((item, i) => (
           <div
             key={i}
-            className="cardd bg-black/10 gap-1 p-2 md:p-3 rounded-lg text-gray-500 flex-col flex md:gap-3 font-poppins"
+            className="cardd bg-black/10 gap-1 p-2 md:p-1 lg:p-3 rounded-lg text-gray-500 flex-col flex md:gap-3 font-poppins"
           >
-            <div className="flex items-center w-[125px] md:w-[550px] md:gap-2 gap-1 md:p-3">
+            <div className="flex items-center w-[125px] md:w-[350px] lg:w-[550px] md:gap-2 gap-1 md:p-3">
               <img
                 className="w-10 h-10 md:w-20 md:h-20 rounded-full object-cover"
                 src={item.img}
@@ -119,7 +113,9 @@ function TestimonialSlider() {
               />
               <p className="md:text-xl text-base">{item.name}</p>
             </div>
-            <div className="text-[9px] md:text-lg md:px-3">{item.desc}</div>
+            <div className="text-[9px] md:text-lg md:px-3 md:line-clamp-4 lg:line-clamp-none">
+              {item.desc}
+            </div>
           </div>
         ))}
       </div>
