@@ -8,16 +8,33 @@ import {
   faTwitter,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactUs from "../../homepages/ContactUs/ContactUs";
 import Footer from "../../homepages/Footer/Footer";
 import { CategoryContext } from "../Context/CategoryContext";
 import "./productInfo.css";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faEnvelopesBulk,
+  faMessage,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+
+import frame1 from "../../images/products/frame1.png";
+
+import { faBloggerB } from "@fortawesome/free-brands-svg-icons";
+import SideMenu from "../Product/SideMenu";
+
 function ProductInfo() {
   const { data } = useContext(ProductDataContext);
   const { category, id } = useParams();
-  const { setSelectedCategory } = useContext(CategoryContext);
 
+  const { selectedCategory, setSelectedCategory } = useContext(CategoryContext);
+  const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const images = [frame1, frame1, frame1, frame1];
+  const [currentIndex, setCurrentIndex] = useState(0);
   const productCategory = data.find((cat) => cat.category === category);
   const product = productCategory?.items.find((item) => item.id === id);
   const relatedProduct = productCategory.items.filter(
@@ -158,7 +175,9 @@ function ProductInfo() {
     window.scrollTo(0, 0);
   }, []);
   const [imgUrl, setImgUrl] = useState(product.image[0]);
-
+  const toggleDropdown = (index) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
   return (
     <div className="product-info text-black overflow-hidden mt-2 font-poppins">
       <div className=" mb-3 text-xl cursor-pointer  px-5 w-full md:px-5">
@@ -170,7 +189,150 @@ function ProductInfo() {
         </Link>
         <span>/ {product.title}</span>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-start gap-5 px-5  mb-2">
+      <div className="flex pl-5 gap-2">
+        <div
+          className={`sm:w-[15%] bg-white border rounded-md shadow-md p-1 md:py-2 md:px-4 md:sticky top-16 h-[40vh] overflow-y-auto z-10 custom-scrollbar ${
+            open
+              ? "fixed top-16 inset-0 w-[80%] h-full overflow-y-auto z-20"
+              : "hidden sm:block"
+          }`}
+        >
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="text-xl mt-2 sm:hidden"
+            onClick={() => setOpen(false)}
+          />
+          <div className="w-full mx-auto">
+            {data.map((dropdown, index) => (
+              <div key={index} className="rounded ">
+                <button
+                  className="flex justify-between items-center px-1 md:px-2 py-2 w-full cursor-pointer"
+                  onClick={() => {
+                    toggleDropdown(index);
+                    setSelectedCategory(dropdown.category);
+                  }}
+                >
+                  <p className="text-sm text-start font-lato font-semibold">
+                    {dropdown.category}
+                  </p>
+                  {openDropdown === index ? (
+                    <FaChevronDown />
+                  ) : (
+                    <FaChevronRight />
+                  )}
+                </button>
+                {openDropdown === index && (
+                  <div className="border-t border-gray-300">
+                    {dropdown.items.map((item) => (
+                      <Link
+                        to={`/productinfo/${dropdown.category}/${item.id}`}
+                        key={item.id}
+                        className="no-underline"
+                      >
+                        <p className="font-lato px-2 py-2 text-sm uppercase hover:bg-custom-green hover:text-light-green cursor-pointer">
+                          {item.title}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-[75%]">
+          <div className="flex flex-col md:flex-row items-center justify-start mb-2 md:pr-10 md:gap-4">
+            <div className="hidden md:block w-1/4 md:px-2">
+              {product.image.map((img, idx) => (
+                <img
+                  key={idx}
+                  className="mb-2 "
+                  src={img}
+                  onClick={() => setImgUrl(img)}
+                  alt={`Image ${idx + 1}`}
+                  style={{
+                    cursor: "pointer",
+                    borderStyle: "double",
+                    border: imgUrl === img ? "4px solid lightgreen" : "none",
+                    borderRadius: "10px",
+                  }}
+                />
+              ))}
+            </div>
+            <div className="w-full flex justify-center">
+              <img src={imgUrl} alt="Descriptive text" className="rounded-md" />
+            </div>
+            <div className="w-full flex flex-col text-xl text-justify">
+              <p>{product.title}</p>
+              <p className="font-semibold">Overview:</p>
+              <p className="sm:max-w-xl">{product.description}</p>
+              <div className="items-center gap-2 text-xl hidden md:flex mt-4">
+                <p>Share:</p>
+                <FontAwesomeIcon icon={faFacebook} />
+                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faWhatsapp} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="p-5 md:block hidden mb-4">
+        <div className="flex justify-around text-lg border p-4">
+          {tabs.map((header, index) => (
+            <p
+              key={index}
+              onClick={() => {
+                setSelectedTab(index);
+                setSelectedMenuItem(0); // Reset submenu item on tab change
+              }}
+              className={`cursor-pointer ${
+                selectedTab === index
+                  ? "font-bold text-custom-green"
+                  : "text-gray-600"
+              }`}
+            >
+              {header.name}
+            </p>
+          ))}
+        </div>
+
+        <div className="flex border-2">
+          {tabs[selectedTab].submenu && (
+            <div className="w-1/4 text-lg flex flex-col items-center border-r pr-4">
+              {tabs[selectedTab].submenu.map((submenuItem, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedMenuItem(index)}
+                  className={`cursor-pointer py-2 ${
+                    selectedMenuItem === index
+                      ? "font-bold text-custom-green"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {submenuItem.menuName}
+                </div>
+              ))}
+            </div>
+          )}
+          <div
+            className={`p-4 ${
+              tabs[selectedTab].submenu
+                ? "w-3/4 text-start"
+                : "w-full text-center"
+            } text-xl`}
+          >
+            {tabs[selectedTab].submenu ? (
+              <p className="rounded p-4">
+                {tabs[selectedTab].submenu[selectedMenuItem].content}
+              </p>
+            ) : (
+              <p className="rounded p-4">{tabs[selectedTab].content}</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="flex flex-col md:flex-row items-center justify-start gap-5 px-5  mb-2">
         <div className="hidden md:block w-1/4 md:px-5">
           {product.image.map((img, idx) => (
             <img
@@ -202,7 +364,7 @@ function ProductInfo() {
             <FontAwesomeIcon icon={faWhatsapp} />
           </div>
         </div>
-      </div>
+      </div> */}
       <div>
         {/* for mobile */}
         <div className="flex items-center gap-2 text-xl px-2 sm:hidden">
@@ -244,7 +406,7 @@ function ProductInfo() {
           </div>
         </div>
         {/* for laptop */}
-        <div className="p-5 md:block hidden mb-4">
+        {/* <div className="p-5 md:block hidden mb-4">
           <div className="flex justify-around text-lg border p-4">
             {tabs.map((header, index) => (
               <p
@@ -298,7 +460,7 @@ function ProductInfo() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* related products */}
       {relatedProduct.length > 0 ? (
